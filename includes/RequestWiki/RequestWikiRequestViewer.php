@@ -7,6 +7,7 @@ use HTMLForm;
 use HTMLFormField;
 use IContextSource;
 use Linker;
+use MediaWiki\Extension\CreateWiki\CreateWikiOOUIForm;
 use MediaWiki\Extension\CreateWiki\WikiManager;
 use MediaWiki\MediaWikiServices;
 use MWException;
@@ -288,6 +289,11 @@ class RequestWikiRequestViewer {
 		return $formDescriptor;
 	}
 
+	/**
+	 * @param string $id
+	 * @param IContextSource $context
+	 * @param CreateWikiOOUIForm $formClass
+	 */
 	public function getForm(
 		string $id,
 		IContextSource $context,
