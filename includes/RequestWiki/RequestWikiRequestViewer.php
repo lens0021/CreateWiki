@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\CreateWiki\RequestWiki;
 
+use Config;
 use Html;
 use HTMLForm;
 use HTMLFormField;
