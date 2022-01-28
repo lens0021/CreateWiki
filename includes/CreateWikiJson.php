@@ -1,6 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\CreateWiki;
+
 use MediaWiki\MediaWikiServices;
+use MWException;
+use ObjectCache;
 use Wikimedia\AtEase\AtEase;
 
 class CreateWikiJson {

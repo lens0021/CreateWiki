@@ -1,6 +1,16 @@
 <?php
 
+namespace MediaWiki\Extension\CreateWiki\RequestWiki;
+
+use ManualLogEntry;
+use MediaWiki\Extension\CreateWiki\CreateWiki\CreateWikiJob;
+use MediaWiki\Extension\CreateWiki\WikiManager;
 use MediaWiki\MediaWikiServices;
+use Message;
+use MWException;
+use SpecialPage;
+use Title;
+use User;
 
 class WikiRequest {
 	public $dbname;

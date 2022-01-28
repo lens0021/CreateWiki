@@ -1,6 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\CreateWiki\CreateWiki;
+
+use LogFormatter;
 use MediaWiki\MediaWikiServices;
+use Message;
+use SpecialPage;
+use Title;
 
 class CreateWikiLogFormatter extends LogFormatter {
 

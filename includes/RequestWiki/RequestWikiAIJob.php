@@ -1,7 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\CreateWiki\RequestWiki;
+
+use Job;
 use MediaWiki\MediaWikiServices;
 use Phpml\ModelManager;
+use Title;
+use User;
 
 class RequestWikiAIJob extends Job {
 	public function __construct( Title $title, array $params ) {

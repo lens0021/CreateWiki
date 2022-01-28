@@ -1,6 +1,15 @@
 <?php
 
+namespace MediaWiki\Extension\CreateWiki\RequestWiki;
+
+use Html;
+use HTMLForm;
+use HTMLFormField;
+use IContextSource;
+use Linker;
+use MediaWiki\Extension\CreateWiki\WikiManager;
 use MediaWiki\MediaWikiServices;
+use MWException;
 
 class RequestWikiRequestViewer {
 

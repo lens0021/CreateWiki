@@ -1,5 +1,11 @@
 <?php
 
+namespace MediaWiki\Extension\CreateWiki\CreateWiki;
+
+use Config;
+use FormSpecialPage;
+use Html;
+use MediaWiki\Extension\CreateWiki\WikiManager;
 use MediaWiki\MediaWikiServices;
 
 class SpecialCreateWiki extends FormSpecialPage {

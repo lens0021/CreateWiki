@@ -1,5 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\CreateWiki\CreateWiki;
+
+use Exception;
+use Job;
+use MediaWiki\Extension\CreateWiki\RequestWiki\WikiRequest;
+use MediaWiki\Extension\CreateWiki\WikiManager;
+use Title;
+use User;
+
 class CreateWikiJob extends Job {
 	public function __construct( Title $title, array $params ) {
 		parent::__construct( 'CreateWikiJob', $params );

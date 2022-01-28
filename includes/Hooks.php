@@ -1,8 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\CreateWiki;
+
+use DatabaseUpdater;
+use EchoAttributeManager;
 use MediaWiki\MediaWikiServices;
 
-class CreateWikiHooks {
+class Hooks {
 	public static function getConfig( string $var ) {
 		return MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'createwiki' )->get( $var );
 	}
@@ -163,7 +167,7 @@ class CreateWikiHooks {
 			'group' => 'positive',
 			'section' => 'alert',
 			'canNotifyAgent' => true,
-			'presentation-model' => EchoCreateWikiPresentationModel::class,
+			'presentation-model' => \MediaWiki\Extension\CreateWiki\Notifications\EchoCreateWikiPresentationModel::class,
 			'immediate' => true
 		];
 
@@ -175,7 +179,7 @@ class CreateWikiHooks {
 			'group' => 'positive',
 			'section' => 'alert',
 			'canNotifyAgent' => true,
-			'presentation-model' => EchoRequestDeclinedPresentationModel::class,
+			'presentation-model' => \MediaWiki\Extension\CreateWiki\Notifications\EchoRequestDeclinedPresentationModel::class,
 			'immediate' => true
 		];
 
@@ -187,7 +191,7 @@ class CreateWikiHooks {
 			'group' => 'positive',
 			'section' => 'alert',
 			'canNotifyAgent' => true,
-			'presentation-model' => EchoRequestCommentPresentationModel::class,
+			'presentation-model' => \MediaWiki\Extension\CreateWiki\Notifications\EchoRequestCommentPresentationModel::class,
 			'immediate' => true
 		];
 

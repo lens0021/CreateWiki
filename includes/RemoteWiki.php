@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\CreateWiki;
+
 use MediaWiki\MediaWikiServices;
 
 class RemoteWiki {

@@ -1,7 +1,14 @@
 <?php
 
+namespace MediaWiki\Extension\CreateWiki;
+
+use DeferredUpdates;
+use EchoEvent;
+use MailAddress;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\User\UserFactory;
+use MessageLocalizer;
+use UserMailer;
 use Wikimedia\Rdbms\LBFactory;
 
 class CreateWikiNotificationsManager {

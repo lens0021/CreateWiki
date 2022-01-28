@@ -1,7 +1,15 @@
 <?php
 
+namespace MediaWiki\Extension\CreateWiki;
+
+use Exception;
+use ExtensionRegistry;
+use FatalError;
+use GlobalVarConfig;
+use ManualLogEntry;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Shell\Shell;
+use Title;
 
 class WikiManager {
 	private $config;
