@@ -293,7 +293,7 @@ class RequestWikiRequestViewer {
 	/**
 	 * @param string $id
 	 * @param IContextSource $context
-	 * @param CreateWikiOOUIForm $formClass
+	 * @param string $formClass
 	 */
 	public function getForm(
 		string $id,
