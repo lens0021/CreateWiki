@@ -2,9 +2,6 @@ name: Quibble and Phan
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   test:
@@ -131,7 +128,7 @@ jobs:
             php-docker: 73
             experimental: false
             stage: npm-test
-  
+
           # Latest stable MediaWiki - PHP 7.3 (composer-test)
           - mw: 'REL1_37'
             php: 7.3
