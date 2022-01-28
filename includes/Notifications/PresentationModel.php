@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extension\CreateWiki\Echo;
+namespace MediaWiki\Extension\CreateWiki\Notifications;
 
 use EchoEventPresentationModel;
 
