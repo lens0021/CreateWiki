@@ -1,23 +1,23 @@
 <?php
 
-namespace MediaWiki\Extension\CreateWiki\Notifications;
+namespace MediaWiki\Extension\CreateWiki\Echo;
 
 use EchoDiscussionParser;
 use EchoEventPresentationModel;
 use RawMessage;
 
-class EchoRequestCommentPresentationModel extends EchoEventPresentationModel {
+class RequestDeclinedPresentationModel extends EchoEventPresentationModel {
 	public function getIconType() {
-		return 'chat';
+		return 'request-declined';
 	}
 
 	public function getHeaderMessage() {
-		return $this->msg( 'notification-header-request-comment' );
+		return $this->msg( 'notification-header-request-declined' );
 	}
 
 	public function getBodyMessage() {
-		$comment = $this->event->getExtraParam( 'comment' );
-		$text = EchoDiscussionParser::getTextSnippet( $comment, $this->language );
+		$reason = $this->event->getExtraParam( 'reason' );
+		$text = EchoDiscussionParser::getTextSnippet( $reason, $this->language );
 
 		return new RawMessage( "$1", [ $text ] );
 	}

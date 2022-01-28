@@ -1,10 +1,10 @@
 <?php
 
-namespace MediaWiki\Extension\CreateWiki\Notifications;
+namespace MediaWiki\Extension\CreateWiki\Echo;
 
 use EchoEventPresentationModel;
 
-class EchoCreateWikiPresentationModel extends EchoEventPresentationModel {
+class PresentationModel extends EchoEventPresentationModel {
 	public function getIconType() {
 		return 'global';
 	}

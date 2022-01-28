@@ -167,7 +167,7 @@ class Hooks {
 			'group' => 'positive',
 			'section' => 'alert',
 			'canNotifyAgent' => true,
-			'presentation-model' => \MediaWiki\Extension\CreateWiki\Notifications\EchoCreateWikiPresentationModel::class,
+			'presentation-model' => \MediaWiki\Extension\CreateWiki\Echo\PresentationModel::class,
 			'immediate' => true
 		];
 
@@ -179,7 +179,7 @@ class Hooks {
 			'group' => 'positive',
 			'section' => 'alert',
 			'canNotifyAgent' => true,
-			'presentation-model' => \MediaWiki\Extension\CreateWiki\Notifications\EchoRequestDeclinedPresentationModel::class,
+			'presentation-model' => \MediaWiki\Extension\CreateWiki\Echo\RequestDeclinedPresentationModel::class,
 			'immediate' => true
 		];
 
@@ -191,7 +191,7 @@ class Hooks {
 			'group' => 'positive',
 			'section' => 'alert',
 			'canNotifyAgent' => true,
-			'presentation-model' => \MediaWiki\Extension\CreateWiki\Notifications\EchoRequestCommentPresentationModel::class,
+			'presentation-model' => \MediaWiki\Extension\CreateWiki\Echo\RequestCommentPresentationModel::class,
 			'immediate' => true
 		];
 
