@@ -40,6 +40,7 @@ class WikiManagerTest extends MediaWikiIntegrationTestCase {
 			WikiManager::class,
 			new WikiManager( 'createwikitest' )
 		);
+		$instance = new WikiManager( false );
 
 		// Test class alias
 		$this->assertInstanceOf(
