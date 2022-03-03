@@ -9,6 +9,7 @@ use GlobalVarConfig;
 use ManualLogEntry;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Shell\Shell;
+use Miraheze\CreateWiki\Hooks\CreateWikiHookRunner;
 use Title;
 
 class WikiManager {
@@ -19,6 +20,8 @@ class WikiManager {
 	private $cwdb;
 	private $lb = false;
 	private $tables = [];
+	/** @var CreateWikiHookRunner */
+	private $hookRunner;
 
 	public $exists;
 
@@ -76,6 +79,7 @@ class WikiManager {
 		$this->dbname = $dbname;
 		$this->dbw = $newDbw;
 		$this->exists = (bool)$check;
+		$this->hookRunner = new CreateWikiHookRunner( MediaWikiServices::getInstance()->getHookContainer() );
 	}
 
 	public function create(
@@ -132,7 +136,7 @@ class WikiManager {
 			$this->dbw->sourceFile( $sqlfile );
 		}
 
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'CreateWikiCreation', [ $wiki, $private ] );
+		$this->hookRunner->onCreateWikiCreation( $wiki, $private );
 
 		$blankConfig = new GlobalVarConfig( '' );
 
@@ -205,7 +209,7 @@ class WikiManager {
 		$deletedWiki = (bool)$row->wiki_deleted;
 
 		// Return error if: wiki is not deleted, force is not used & wiki
-		if ( !$force && !$deletedWiki && ( $unixNow - $unixDeletion ) < ( (int)$this->config->get( 'CreateWikiStateDays' )['deleted'] * 86400 ) ) {
+		if ( !$force && ( !$deletedWiki || ( $unixNow - $unixDeletion ) < ( (int)$this->config->get( 'CreateWikiStateDays' )['deleted'] * 86400 ) ) ) {
 			return "Wiki {$wiki} can not be deleted yet.";
 		}
 
@@ -225,7 +229,7 @@ class WikiManager {
 
 		$this->recacheJson();
 
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'CreateWikiDeletion', [ $this->cwdb, $wiki ] );
+		$this->hookRunner->onCreateWikiDeletion( $this->cwdb, $wiki );
 
 		return null;
 	}
@@ -260,7 +264,7 @@ class WikiManager {
 
 		$this->recacheJson();
 
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'CreateWikiRename', [ $this->cwdb, $old, $new ] );
+		$this->hookRunner->onCreateWikiRename( $this->cwdb, $old, $new );
 
 		return null;
 	}
@@ -268,7 +272,7 @@ class WikiManager {
 	private function compileTables() {
 		$cTables = [];
 
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'CreateWikiTables', [ &$cTables ] );
+		$this->hookRunner->onCreateWikiTables( $cTables );
 
 		$cTables['cw_wikis'] = 'wiki_dbname';
 
