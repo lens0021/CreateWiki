@@ -64,7 +64,7 @@ class Hooks implements
 	* @param array &$notificationCategories array of Echo notification categories
 	* @param array &$icons array of icon details
 	*/
-	public static function onBeforeCreateEchoEvent(
+	public function onBeforeCreateEchoEvent(
 		&$notifications, &$notificationCategories, &$icons
 	) {
 		$notificationCategories['wiki-creation'] = [
